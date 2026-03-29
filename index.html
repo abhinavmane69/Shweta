@@ -1,0 +1,313 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOGUE: Shweta's Birthday Edition 🌷</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;600&family=Dancing+Script:wght@700&display=swap');
+
+body {
+    margin: 0;
+    background: radial-gradient(circle at center, #0a0a0a, #000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* LUXURY OPEN ANIMATION */
+.book {
+    width: 900px;
+    height: 560px;
+    position: relative;
+    perspective: 2500px;
+    animation: openBook 1.8s ease forwards;
+    transform: scale(0.8);
+    opacity: 0;
+}
+
+@keyframes openBook {
+    0% {
+        transform: scale(0.6) rotateX(20deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+/* PAGE DEPTH SHADOW */
+.page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.15), transparent);
+    pointer-events: none;
+}
+
+
+/* MUSIC BUTTON */
+#music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(45deg,#ff4d6d,#ff758f);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.book {
+    width: 900px;
+    height: 560px;
+    position: relative;
+    perspective: 2500px;
+}
+
+.page {
+    width: 450px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: transform 1.6s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: white;
+    border-radius: 0 15px 15px 0;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.back { transform: rotateY(180deg); background:#fff5f7; }
+
+input { display:none; }
+#p1:checked ~ .p1 { transform: rotateY(-180deg); z-index:10; }
+#p2:checked ~ .p2 { transform: rotateY(-180deg); z-index:11; }
+#p3:checked ~ .p3 { transform: rotateY(-180deg); z-index:12; }
+
+.content { padding:25px; text-align:center; }
+
+.vogue-logo { font-size:72px; font-family:'Playfair Display'; }
+.tagline { letter-spacing:5px; font-size:12px; opacity:0.7; }
+
+.img-box {
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+    align-content: center;
+    padding: 10px;
+}
+
+/* Layout variations */
+.layout-center {
+    grid-template-columns: 1fr;
+}
+
+.layout-bottom-grid {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+}
+
+.layout-strip {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.img-box img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+.img-box img {
+    max-width:90%;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.quote {
+    font-family:'Dancing Script';
+    color:#ff4d6d;
+    font-size:1.5rem;
+}
+
+.shayari {
+    font-family:'Dancing Script';
+    font-size:1.7rem;
+    line-height:1.8;
+}
+
+/* FLOATING TULIPS */
+.tulip {
+    position: fixed;
+    bottom: -50px;
+    font-size: 24px;
+    animation: floatUp 5s linear forwards;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity:1; }
+    100% { transform: translateY(-100vh); opacity:0; }
+}
+
+
+/* POLAROID STYLE */
+.polaroid {
+    background: white;
+    padding: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: rotate(-5deg);
+}
+.polaroid:nth-child(2){ transform: rotate(5deg); }
+.polaroid:nth-child(3){ transform: rotate(-3deg); }
+
+/* HOVER GLOW */
+.img-box img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 105, 135, 0.8);
+    transition: 0.3s;
+}
+
+/* SLIDESHOW */
+.slideshow img { display:none; }
+.slideshow img.active { display:block; }
+
+</style></head>
+<body><audio id="music" loop>
+<source src="Manchala.mp3" type="audio/mpeg">
+</audio><button id="music-btn" onclick="toggleMusic()">🎵 Play</button>
+
+<div class="book"><input type="checkbox" id="p1">
+<div class="page p1">
+<label class="front" for="p1" style="background:black;color:white;">
+<div class="content">
+<div class="tagline">HAPPY BIRTHDAY</div>
+<div class="vogue-logo">VOGUE</div>
+<div class="img-box"><img src="cover.jpg"></div>
+<h2>Shweta 💖</h2>
+</div>
+</label><label class="back" for="p1">
+<div class="content">
+<h2>Our Story 🌷</h2>
+<div class="img-box layout-center">
+<img src="img1.jpg">
+</div>
+<p class="quote">"Not perfect memories, but perfect together."</p>
+</div>
+</label>
+</div><input type="checkbox" id="p2">
+<div class="page p2">
+<label class="front" for="p2">
+<div class="content">
+<h2>Tom & Jerry 💫</h2>
+<div class="img-box layout-strip slideshow">
+<img src="img2.jpg" class="active">
+<img src="img2b.jpg">
+<img src="img2c.jpg">
+</div>
+<p>Fights unlimited, bond unbreakable 😌</p>
+</div>
+</label><label class="back" for="p2">
+<div class="content">
+<h2>Shayari 🌸</h2>
+<div class="shayari">
+Tu hasi toh lagta hai duniya meri jeet gayi,<br>
+Tu rooth jaaye toh lagta hai sab kuch haar gaya... 💔<br><br>
+Par sach ye hai bandriya 😌,<br>
+Tu saath ho toh har din festival lagta hai. 🌷
+</div>
+</div>
+</label>
+</div><input type="checkbox" id="p3">
+<div class="page p3">
+<label class="front" for="p3">
+<div class="content">
+<h2>Savage Queen 🐒</h2>
+<div class="img-box layout-bottom-grid">
+<img src="img3.jpg">
+<img src="img3b.jpg">
+<img src="img3c.jpg">
+<img src="img3d.jpg">
+</div>
+<p class="quote">"Attitude level: Shweta 🔥"</p>
+</div>
+</label><label class="back" for="p3">
+<div class="content">
+<h2>Final Message 💌</h2>
+<p id="typingText"></p>
+</div>
+</label>
+</div></div><script>
+function toggleMusic(){
+let music=document.getElementById("music");
+if(music.paused){music.play();}else{music.pause();}
+}
+
+setInterval(()=>{
+let tulip=document.createElement("div");
+tulip.className="tulip";
+tulip.innerHTML="🌷";
+tulip.style.left=Math.random()*100+"vw";
+document.body.appendChild(tulip);
+setTimeout(()=>tulip.remove(),5000);
+},800);
+// Typing animation for final message
+const message = `No matter kitna bhi fight ho...
+Tu meri permanent person hai 😌❤️
+
+Stay same — cute, caring & thodi si pagal 😜✨
+
+Happy Birthday Shweta 🎂🌷`;
+let i = 0;
+function typeEffect(){
+  const el = document.getElementById("typingText");
+  if(!el) return;
+  if(i < message.length){
+    el.innerHTML += message.charAt(i) === '
+' ? '<br>' : message.charAt(i);
+    i++;
+    setTimeout(typeEffect, 40);
+  }
+}
+
+// Trigger typing when last page is opened
+const p3 = document.getElementById("p3");
+p3.addEventListener("change", ()=>{
+  if(p3.checked){
+    document.getElementById("typingText").innerHTML = "";
+    i = 0;
+    setTimeout(typeEffect, 500);
+  }
+});
+
+// slideshow auto change
+setInterval(()=>{
+ let slides=document.querySelectorAll('.slideshow img');
+ let index=[...slides].findIndex(img=>img.classList.contains('active'));
+ slides[index].classList.remove('active');
+ slides[(index+1)%slides.length].classList.add('active');
+},2000);
+
+</script></body>
+</html>

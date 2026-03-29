@@ -1,209 +1,216 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shweta ❤️ Birthday Magazine</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shweta ❤️ Birthday Magazine</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-<style>
-body {
-    margin:0;
-    background:#000;
-    font-family:'Poppins',sans-serif;
-    overflow:hidden;
-}
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-#book {
-    width:90vw;
-    height:90vh;
-    margin:auto;
-}
+        #book {
+            box-shadow: 0 0 50px rgba(255, 77, 109, 0.3);
+        }
 
-/* PAGE */
-.page {
-    background:#111;
-    color:white;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-}
+        .page {
+            background: #111;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #333;
+            box-sizing: border-box;
+        }
 
-/* IMAGE */
-.page img {
-    width:80%;
-    height:60%;
-    object-fit:cover;
-    border-radius:20px;
-    box-shadow:0 0 20px rgba(255,255,255,0.2);
-}
+        /* Images */
+        .page img {
+            width: 90%;
+            height: 65%;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
 
-/* TEXT FIXED */
-.text {
-    margin-top:20px;
-    font-size:18px;
-    text-align:center;
-    width:80%;
-    min-height:60px;
+        /* Typing Text Box */
+        .text {
+            margin-top: 20px;
+            font-size: 16px;
+            text-align: center;
+            width: 85%;
+            color: #ffd6de;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 12px;
+            border-radius: 10px;
+            min-height: 50px;
+            line-height: 1.4;
+            border-right: 2px solid #ff4d6d; /* Cursor effect */
+        }
 
-    color:#fff;
-    text-shadow:0 0 8px rgba(255,255,255,0.8);
+        /* Final Page Styling */
+        .last {
+            background: linear-gradient(135deg, #1a1a1a 0%, #4a0e1c 100%);
+            font-size: 18px;
+            text-align: center;
+            padding: 30px;
+        }
 
-    background:rgba(0,0,0,0.5);
-    padding:10px 15px;
-    border-radius:10px;
+        .last h2 {
+            color: #ff4d6d;
+            text-shadow: 0 0 10px rgba(255,77,109,0.5);
+        }
 
-    border-right:2px solid white;
-    white-space:nowrap;
-    overflow:hidden;
-}
-
-/* COVER ANIMATIONS */
-@keyframes pulse {
-    0% { opacity:0.5; }
-    50% { opacity:1; }
-    100% { opacity:0.5; }
-}
-
-/* LAST PAGE */
-.last {
-    font-size:22px;
-    padding:20px;
-    text-align:center;
-    text-shadow:0 0 15px pink;
-}
-</style>
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.6; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- MUSIC -->
-<audio autoplay loop>
+<audio id="bgMusic" loop>
     <source src="Manchala Hasee Toh Phasee 128.mp3" type="audio/mp3">
 </audio>
 
 <div id="book">
-
-<!-- 💖 COVER PAGE -->
-<div class="page" style="position:relative; overflow:hidden;">
-
-    <video autoplay muted loop style="
-        position:absolute;
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        z-index:-2;
-    ">
-        <source src="abhinav._.299_14041229_175248310.mp4 type="video/mp4">
-    </video>
-
-    <div style="
-        position:absolute;
-        width:100%;
-        height:100%;
-        background:linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.6));
-        z-index:-1;
-    "></div>
-
-    <div style="
-        text-align:center;
-        padding:25px;
-        backdrop-filter: blur(8px);
-        background:rgba(0,0,0,0.4);
-        border-radius:20px;
-        box-shadow:0 0 25px rgba(255,77,109,0.5);
-    ">
-
-        <h1 style="font-size:42px; text-shadow:0 0 15px #ff4d6d;">
-            ✨ Shweta ✨
-        </h1>
-
-        <h2 style="font-weight:300; color:#ffd6de;">
-            The Special One ❤️
-        </h2>
-
-        <p style="margin-top:20px; line-height:1.7;">
-            "Kuch log zindagi mein bas aate nahi...<br>
-            woh zindagi ban jaate hai 💖<br><br>
-
-            Tu bhi unmein se ek hai Shweta,<br>
-            jo sirf yaadon mein nahi,<br>
-            dil mein rehti hai..."
-        </p>
-
-        <p style="margin-top:30px; font-size:14px; animation:pulse 2s infinite;">
-            Swipe to open ➡️
-        </p>
-
+    
+    <div class="page" data-density="hard">
+        <video autoplay muted loop playsinline style="position:absolute; width:100%; height:100%; object-fit:cover; z-index:-2;">
+            <source src="abhinav._.299_14041229_175248310.mp4" type="video/mp4">
+        </video>
+        <div style="position:absolute; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:-1;"></div>
+        
+        <div style="text-align:center; z-index:1; padding:25px; border:1px solid rgba(255,255,255,0.2); border-radius:20px; backdrop-filter:blur(8px);">
+            <h1 style="color:#ff4d6d; font-size: 40px; margin:0;">✨ Shweta ✨</h1>
+            <h3 style="font-weight:300; color:#ffd6de;">The Special One ❤️</h3>
+            <p style="margin-top:20px; font-style: italic;">
+                "Kuch log zindagi mein bas aate nahi...<br>
+                woh zindagi ban jaate hai 💖"
+            </p>
+            <p style="font-size:12px; animation:pulse 2s infinite; margin-top:30px; color:#aaa;">
+                TAP TO START & SWIPE ➡️
+            </p>
+        </div>
     </div>
-</div>
 
-<!-- ALL PAGES -->
-<div class="page"><img src="IMG-20260310-WA0121.jpg"><div class="text" data-text="Kabhi hasi, kabhi ladai... par har pal tere saath hi achha lagta hai ❤️"></div></div>
+    <div class="page"><img src="IMG-20260310-WA0121.jpg"><div class="text" data-text="Kabhi hasi, kabhi ladai... par har pal tere saath hi achha lagta hai ❤️"></div></div>
+    <div class="page"><img src="IMG-20260310-WA0136.jpg"><div class="text" data-text="Tu irritate karti hai... par sach kahu toh woh bhi pyara lagta hai 😄"></div></div>
+    <div class="page"><img src="IMG-20260311-WA0089.jpg"><div class="text" data-text="Bilkul Judy aur Nick jaisi hai apni story 🐰🦊"></div></div>
+    <div class="page"><img src="IMG-20260311-WA0147.jpg"><div class="text" data-text="Ladte bhi hai... par care bhi utni hi karte hai 💖"></div></div>
+    <div class="page"><img src="IMG_20260319_142406_921.jpg"><div class="text" data-text="Tu hasi toh duniya thodi aur beautiful lagne lagti hai 🌸"></div></div>
+    <div class="page"><img src="MVIMG_20260221_124155.jpg"><div class="text" data-text="Har yaad tere saath... ek alag hi feeling deti hai ✨"></div></div>
+    <div class="page"><img src="MVIMG_20260311_101952.jpg"><div class="text" data-text="Tu special hai... aur hamesha rahegi 💫"></div></div>
+    <div class="page"><img src="MVIMG_20260311_111947.jpg"><div class="text" data-text="Kabhi kabhi sochta hu... tu meri life mein kaise aa gayi ❤️"></div></div>
+    <div class="page"><img src="MVIMG_20260318_085241.jpg"><div class="text" data-text="Par jo bhi hai... best hai 💯"></div></div>
+    <div class="page"><img src="Snapchat-1312202217.jpg"><div class="text" data-text="Tu sirf dost nahi... ek emotion hai 🫶"></div></div>
 
-<div class="page"><img src="IMG-20260310-WA0136.jpg"><div class="text" data-text="Tu irritate karti hai... par sach kahu toh woh bhi pyara lagta hai 😄"></div></div>
-
-<div class="page"><img src="IMG-20260311-WA0089.jpg"><div class="text" data-text="Bilkul Judy aur Nick jaisi hai apni story 🐰🦊"></div></div>
-
-<div class="page"><img src="IMG-20260311-WA0147.jpg"><div class="text" data-text="Ladte bhi hai... par care bhi utni hi karte hai 💖"></div></div>
-
-<div class="page"><img src="IMG_20260319_142406_921.jpg"><div class="text" data-text="Tu hasi toh duniya thodi aur beautiful lagne lagti hai 🌸"></div></div>
-
-<div class="page"><img src="MVIMG_20260221_124155.jpg"><div class="text" data-text="Har yaad tere saath... ek alag hi feeling deti hai ✨"></div></div>
-
-<div class="page"><img src="MVIMG_20260311_101952.jpg"><div class="text" data-text="Tu special hai... aur hamesha rahegi 💫"></div></div>
-
-<div class="page"><img src="MVIMG_20260311_111947.jpg"><div class="text" data-text="Kabhi kabhi sochta hu... tu meri life mein kaise aa gayi ❤️"></div></div>
-
-<div class="page"><img src="MVIMG_20260318_085241.jpg"><div class="text" data-text="Par jo bhi hai... best hai 💯"></div></div>
-
-<div class="page"><img src="Snapchat-1312202217.jpg"><div class="text" data-text="Tu sirf dost nahi... ek emotion hai 🫶"></div></div>
-
-<!-- FINAL PAGE -->
-<div class="page last">
-🎂 Happy Birthday Shweta 🎂<br><br>
-
-"Na tu sirf dost hai,<br>
-Na sirf ek aadat,<br>
-Tu woh feeling hai,<br>
-Jo har din ko bana deti hai khaas 💖<br><br>
-
-Judi aur Nick jaisi apni kahani,<br>
-Kabhi ladai, kabhi hasi purani,<br>
-Par sach yeh hai Shweta,<br>
-Tu meri life ki sabse beautiful kahani ❤️"<br><br>
-
-✨ Always Stay Happy ✨
-</div>
+    <div class="page last" data-density="hard">
+        <h2>🎂 Happy Birthday Shweta!</h2>
+        <p style="font-size: 15px; line-height: 1.8;">
+            "Na tu sirf dost hai,<br>
+            Na sirf ek aadat,<br>
+            Tu woh feeling hai,<br>
+            Jo har din ko bana deti hai khaas 💖<br><br>
+            Judi aur Nick jaisi apni kahani,<br>
+            Kabhi ladai, kabhi hasi purani..."
+        </p>
+        <p style="color:#ff4d6d; font-weight: bold; margin-top: 20px;">✨ Always Stay Happy ✨</p>
+    </div>
 
 </div>
 
 <script>
-const pageFlip = new St.PageFlip(document.getElementById("book"), {
-    width:400,
-    height:600,
-    size:"stretch",
-    showCover:true
-});
-pageFlip.loadFromHTML(document.querySelectorAll(".page"));
+    // 1. Initialize PageFlip
+    const pageFlip = new St.PageFlip(document.getElementById("book"), {
+        width: 400,
+        height: 600,
+        size: "stretch",
+        minWidth: 315,
+        maxWidth: 1000,
+        minHeight: 420,
+        maxHeight: 1350,
+        showCover: true,
+        mobileScrollSupport: true
+    });
 
-/* TYPING */
-document.querySelectorAll('.text').forEach(el => {
-    let text = el.getAttribute('data-text');
-    let i = 0;
-    function type() {
-        if(i < text.length){
-            el.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, 70);
+    pageFlip.loadFromHTML(document.querySelectorAll(".page"));
+
+    // 2. Music Activation on first click
+    document.addEventListener('click', () => {
+        const audio = document.getElementById('bgMusic');
+        if (audio.paused) {
+            audio.play().catch(e => console.log("Audio play blocked"));
         }
+    }, { once: true });
+
+    // 3. Confetti Trigger on last page
+    pageFlip.on('flip', (e) => {
+        if (e.data === pageFlip.getPageCount() - 1) {
+            const duration = 4 * 1000;
+            const animationEnd = Date.now() + duration;
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            const interval = setInterval(function() {
+                const timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) return clearInterval(interval);
+
+                const particleCount = 50 * (timeLeft / duration);
+                confetti(Object.assign({}, defaults, { 
+                    particleCount, 
+                    origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+                    colors: ['#ff4d6d', '#ffffff']
+                }));
+                confetti(Object.assign({}, defaults, { 
+                    particleCount, 
+                    origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+                    colors: ['#ff4d6d', '#ffffff']
+                }));
+            }, 250);
+        }
+    });
+
+    // 4. Typing Effect Logic
+    function startTyping(el) {
+        const text = el.getAttribute('data-text');
+        el.innerHTML = "";
+        let i = 0;
+        const interval = setInterval(() => {
+            if (i < text.length) {
+                el.innerHTML += text.charAt(i);
+                i++;
+            } else {
+                clearInterval(interval);
+                el.style.borderRight = "none"; // Hide cursor when done
+            }
+        }, 60);
     }
-    type();
-});
+
+    // Trigger typing for all pages initially (or you can trigger per flip)
+    document.querySelectorAll('.text').forEach(el => startTyping(el));
+
 </script>
 
 </body>

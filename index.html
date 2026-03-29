@@ -5,10 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shweta ❤️ Birthday Magazine</title>
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-
-<!-- Page Flip Library -->
 <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
 
 <style>
@@ -25,6 +22,7 @@ body {
     margin:auto;
 }
 
+/* PAGE */
 .page {
     background:#111;
     color:white;
@@ -35,6 +33,7 @@ body {
     position:relative;
 }
 
+/* IMAGE */
 .page img {
     width:80%;
     height:60%;
@@ -43,32 +42,39 @@ body {
     box-shadow:0 0 20px rgba(255,255,255,0.2);
 }
 
+/* TEXT FIXED */
 .text {
     margin-top:20px;
     font-size:18px;
     text-align:center;
     width:80%;
     min-height:60px;
+
+    color:#fff;
+    text-shadow:0 0 8px rgba(255,255,255,0.8);
+
+    background:rgba(0,0,0,0.5);
+    padding:10px 15px;
+    border-radius:10px;
+
     border-right:2px solid white;
     white-space:nowrap;
     overflow:hidden;
 }
 
-/* Glow effect */
-.page::before {
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:radial-gradient(circle,rgba(255,77,109,0.3),transparent);
-    z-index:-1;
+/* COVER ANIMATIONS */
+@keyframes pulse {
+    0% { opacity:0.5; }
+    50% { opacity:1; }
+    100% { opacity:0.5; }
 }
 
-/* Last Page */
+/* LAST PAGE */
 .last {
     font-size:22px;
     padding:20px;
     text-align:center;
+    text-shadow:0 0 15px pink;
 }
 </style>
 </head>
@@ -82,53 +88,45 @@ body {
 
 <div id="book">
 
-<!-- 💖 COVER PAGE WITH VIDEO -->
+<!-- 💖 COVER PAGE -->
 <div class="page" style="position:relative; overflow:hidden;">
 
-    <!-- VIDEO BACKGROUND -->
     <video autoplay muted loop style="
         position:absolute;
         width:100%;
         height:100%;
         object-fit:cover;
-        z-index:-1;
+        z-index:-2;
     ">
         <source src="VID_20260306_144542.mp4" type="video/mp4">
     </video>
 
-    <!-- DARK OVERLAY -->
     <div style="
         position:absolute;
         width:100%;
         height:100%;
-        background:rgba(0,0,0,0.5);
+        background:linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.6));
+        z-index:-1;
     "></div>
 
-    <!-- CONTENT -->
-    <div style="text-align:center; padding:20px; z-index:1;">
+    <div style="
+        text-align:center;
+        padding:25px;
+        backdrop-filter: blur(8px);
+        background:rgba(0,0,0,0.4);
+        border-radius:20px;
+        box-shadow:0 0 25px rgba(255,77,109,0.5);
+    ">
 
-        <h1 style="
-            font-size:40px;
-            text-shadow:0 0 20px #ff4d6d;
-            animation: fadeIn 2s ease-in-out;
-        ">
+        <h1 style="font-size:42px; text-shadow:0 0 15px #ff4d6d;">
             ✨ Shweta ✨
         </h1>
 
-        <h2 style="
-            font-weight:300;
-            margin-top:-10px;
-            animation: fadeIn 3s ease-in-out;
-        ">
+        <h2 style="font-weight:300; color:#ffd6de;">
             The Special One ❤️
         </h2>
 
-        <p style="
-            margin-top:20px;
-            font-size:16px;
-            line-height:1.6;
-            animation: fadeIn 4s ease-in-out;
-        ">
+        <p style="margin-top:20px; line-height:1.7;">
             "Kuch log zindagi mein bas aate nahi...<br>
             woh zindagi ban jaate hai 💖<br><br>
 
@@ -137,77 +135,33 @@ body {
             dil mein rehti hai..."
         </p>
 
-        <p style="
-            margin-top:40px;
-            font-size:14px;
-            opacity:0.8;
-            animation: pulse 2s infinite;
-        ">
+        <p style="margin-top:30px; font-size:14px; animation:pulse 2s infinite;">
             Swipe to open ➡️
         </p>
 
     </div>
 </div>
 
-<!-- PAGE 1 -->
-<div class="page">
-<img src="IMG-20260310-WA0121.jpg">
-<div class="text" data-text="Kabhi hasi, kabhi ladai... par har pal tere saath hi achha lagta hai ❤️"></div>
-</div>
+<!-- ALL PAGES -->
+<div class="page"><img src="IMG-20260310-WA0121.jpg"><div class="text" data-text="Kabhi hasi, kabhi ladai... par har pal tere saath hi achha lagta hai ❤️"></div></div>
 
-<!-- PAGE 2 -->
-<div class="page">
-<img src="IMG-20260310-WA0136.jpg">
-<div class="text" data-text="Tu irritate karti hai... par sach kahu toh woh bhi pyara lagta hai 😄"></div>
-</div>
+<div class="page"><img src="IMG-20260310-WA0136.jpg"><div class="text" data-text="Tu irritate karti hai... par sach kahu toh woh bhi pyara lagta hai 😄"></div></div>
 
-<!-- PAGE 3 -->
-<div class="page">
-<img src="IMG-20260311-WA0089.jpg">
-<div class="text" data-text="Bilkul Judy aur Nick jaisi hai apni story 🐰🦊"></div>
-</div>
+<div class="page"><img src="IMG-20260311-WA0089.jpg"><div class="text" data-text="Bilkul Judy aur Nick jaisi hai apni story 🐰🦊"></div></div>
 
-<!-- PAGE 4 -->
-<div class="page">
-<img src="IMG-20260311-WA0147.jpg">
-<div class="text" data-text="Ladte bhi hai... par care bhi utni hi karte hai 💖"></div>
-</div>
+<div class="page"><img src="IMG-20260311-WA0147.jpg"><div class="text" data-text="Ladte bhi hai... par care bhi utni hi karte hai 💖"></div></div>
 
-<!-- PAGE 5 -->
-<div class="page">
-<img src="IMG_20260319_142406_921.jpg">
-<div class="text" data-text="Tu hasi toh duniya thodi aur beautiful lagne lagti hai 🌸"></div>
-</div>
+<div class="page"><img src="IMG_20260319_142406_921.jpg"><div class="text" data-text="Tu hasi toh duniya thodi aur beautiful lagne lagti hai 🌸"></div></div>
 
-<!-- PAGE 6 -->
-<div class="page">
-<img src="MVIMG_20260221_124155.jpg">
-<div class="text" data-text="Har yaad tere saath... ek alag hi feeling deti hai ✨"></div>
-</div>
+<div class="page"><img src="MVIMG_20260221_124155.jpg"><div class="text" data-text="Har yaad tere saath... ek alag hi feeling deti hai ✨"></div></div>
 
-<!-- PAGE 7 -->
-<div class="page">
-<img src="MVIMG_20260311_101952.jpg">
-<div class="text" data-text="Tu special hai... aur hamesha rahegi 💫"></div>
-</div>
+<div class="page"><img src="MVIMG_20260311_101952.jpg"><div class="text" data-text="Tu special hai... aur hamesha rahegi 💫"></div></div>
 
-<!-- PAGE 8 -->
-<div class="page">
-<img src="MVIMG_20260311_111947.jpg">
-<div class="text" data-text="Kabhi kabhi sochta hu... tu meri life mein kaise aa gayi ❤️"></div>
-</div>
+<div class="page"><img src="MVIMG_20260311_111947.jpg"><div class="text" data-text="Kabhi kabhi sochta hu... tu meri life mein kaise aa gayi ❤️"></div></div>
 
-<!-- PAGE 9 -->
-<div class="page">
-<img src="MVIMG_20260318_085241.jpg">
-<div class="text" data-text="Par jo bhi hai... best hai 💯"></div>
-</div>
+<div class="page"><img src="MVIMG_20260318_085241.jpg"><div class="text" data-text="Par jo bhi hai... best hai 💯"></div></div>
 
-<!-- PAGE 10 -->
-<div class="page">
-<img src="Snapchat-1312202217.jpg">
-<div class="text" data-text="Tu sirf dost nahi... ek emotion hai 🫶"></div>
-</div>
+<div class="page"><img src="Snapchat-1312202217.jpg"><div class="text" data-text="Tu sirf dost nahi... ek emotion hai 🫶"></div></div>
 
 <!-- FINAL PAGE -->
 <div class="page last">
@@ -229,24 +183,15 @@ Tu meri life ki sabse beautiful kahani ❤️"<br><br>
 </div>
 
 <script>
-const pageFlip = new St.PageFlip(
-    document.getElementById("book"),
-    {
-        width: 400,
-        height: 600,
-        size: "stretch",
-        minWidth: 300,
-        maxWidth: 800,
-        minHeight: 400,
-        maxHeight: 1000,
-        showCover: true,
-        mobileScrollSupport: false
-    }
-);
-
+const pageFlip = new St.PageFlip(document.getElementById("book"), {
+    width:400,
+    height:600,
+    size:"stretch",
+    showCover:true
+});
 pageFlip.loadFromHTML(document.querySelectorAll(".page"));
 
-/* Typing Animation */
+/* TYPING */
 document.querySelectorAll('.text').forEach(el => {
     let text = el.getAttribute('data-text');
     let i = 0;
@@ -254,7 +199,7 @@ document.querySelectorAll('.text').forEach(el => {
         if(i < text.length){
             el.innerHTML += text.charAt(i);
             i++;
-            setTimeout(type, 40);
+            setTimeout(type, 70);
         }
     }
     type();

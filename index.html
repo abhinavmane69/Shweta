@@ -22,6 +22,7 @@ body {
     margin:auto;
 }
 
+/* PAGE */
 .page {
     background:#111;
     color:white;
@@ -61,7 +62,7 @@ body {
     overflow:hidden;
 }
 
-/* COVER ANIMATION */
+/* ANIMATION */
 @keyframes pulse {
     0% { opacity:0.5; }
     50% { opacity:1; }
@@ -80,14 +81,14 @@ body {
 
 <body>
 
-<!-- 🎵 MUSIC -->
-<audio id="song"loop preload="auto">
+<!-- MUSIC -->
+<audio autoplay loop>
     <source src="Manchala Hasee Toh Phasee 128.mp3" type="audio/mp3">
 </audio>
 
 <div id="book">
 
-<!-- 💖 COVER PAGE WITH VIDEO -->
+<!-- 💖 COVER PAGE WITH YOUR VIDEO -->
 <div class="page" style="position:relative; overflow:hidden;">
 
     <video autoplay muted loop style="
@@ -100,6 +101,7 @@ body {
         <source src="abhinav._.299_14041229_175248310.mp4" type="video/mp4">
     </video>
 
+    <!-- DARK OVERLAY -->
     <div style="
         position:absolute;
         width:100%;
@@ -108,6 +110,7 @@ body {
         z-index:-1;
     "></div>
 
+    <!-- CONTENT -->
     <div style="
         text-align:center;
         padding:25px;
@@ -193,4 +196,18 @@ pageFlip.loadFromHTML(document.querySelectorAll(".page"));
 
 /* Typing */
 document.querySelectorAll('.text').forEach(el => {
-    let text = el.getAttribute('data-text
+    let text = el.getAttribute('data-text');
+    let i = 0;
+    function type() {
+        if(i < text.length){
+            el.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, 70);
+        }
+    }
+    type();
+});
+</script>
+
+</body>
+</html>
